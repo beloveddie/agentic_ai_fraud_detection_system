@@ -212,7 +212,7 @@ async def simple_agent():
         🚨 CRITICAL: You MUST use the execute_python_code_action_with_healing tool!
         This tool has LLM-POWERED SELF-HEALING that will automatically fix code errors and retry!
         """,
-        model="o4-mini",
+        model="litellm/anthropic/claude-sonnet-4-5-20250929",
         tools=[execute_python_code_action_with_healing]
     )
     
@@ -220,8 +220,8 @@ async def simple_agent():
     analysis_prompt = f"""
     🎯 DYNAMIC FRAUD ANALYSIS REQUEST
     
-    Transaction to analyze: {transaction_data}
-    
+    input_data: {transaction_data}
+
     Please perform the following steps:
     
     1. 🧠 ANALYZE the transaction properties and identify key risk factors to investigate
